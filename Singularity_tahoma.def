@@ -53,7 +53,7 @@ wget \
 && ln -sf /tmp/soedinglab-hh-suite-* /tmp/hh-suite \
 && mkdir /tmp/hh-suite/build \
 && cd /tmp/hh-suite/build \
-&& cmake -DCMAKE_INSTALL_PREFIX=/opt/hhsuite .. \
+&& cmake -DCMAKE_INSTALL_PREFIX=/opt/hhsuite -DHAVE_AVX2=1 -DCMAKE_C_FLAGS="-mno-avx512f " -DCMAKE_CXX_FLAGS="-mno-avx512f " .. \
 && make -j 4 && make install \
 && ln -s /opt/hhsuite/bin/* /usr/bin \
 && rm -rf /tmp/hh-suite \
